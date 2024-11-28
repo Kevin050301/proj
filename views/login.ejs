@@ -1,0 +1,24 @@
+<!-- views/login.ejs -->
+
+<h2>Login</h2>
+<form action="/login" method="POST" class="mt-4">
+    <% if (typeof errors !== 'undefined' && errors.length > 0) { %>
+        <div class="alert alert-danger">
+            <ul class="mb-0">
+                <% errors.forEach(error => { %>
+                    <li><%= error.msg %></li>
+                <% }) %>
+            </ul>
+        </div>
+    <% } %>
+    <div class="mb-3">
+        <label for="username" class="form-label">Username:</label>
+        <input type="text" name="username" id="username" class="form-control" value="<%= typeof username !== 'undefined' ? username : '' %>" required>
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password:</label>
+        <input type="password" name="password" id="password" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>
+<p class="mt-3">Don't have an account? <a href="/register">Register here</a>.</p>

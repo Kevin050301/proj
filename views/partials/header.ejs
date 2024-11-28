@@ -1,0 +1,9 @@
+<!-- views/partials/header.ejs -->
+<header>
+    <h1><%= title %></h1>
+    <% if (user) { %>
+        <a href="/logout">Logout</a>
+    <% } else { %>
+        <a href="/login">Login</a> | <a href="/register">Register</a>
+    <% } %>
+</header>

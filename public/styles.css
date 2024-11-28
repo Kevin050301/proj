@@ -1,0 +1,30 @@
+/* public/styles.css */
+
+body {
+    padding-top: 70px;
+    background-color: #f8f9fa;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+}
+
+.badge {
+    font-size: 0.9em;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.alert {
+    margin-top: 20px;
+}

@@ -1,0 +1,40 @@
+<!-- views/update.ejs -->
+
+<h2>Update Data</h2>
+<form action="/crud/update/<%= data._id %>?_method=PUT" method="POST" class="mt-4">
+    <% if (typeof errors !== 'undefined' && errors.length > 0) { %>
+        <div class="alert alert-danger">
+            <ul class="mb-0">
+                <% errors.forEach(error => { %>
+                    <li><%= error.msg %></li>
+                <% }) %>
+            </ul>
+        </div>
+    <% } %>
+    <div class="mb-3">
+        <label for="title" class="form-label">Title:</label>
+        <input type="text" name="title" id="title" class="form-control" value="<%= data.title %>" required>
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Description:</label>
+        <textarea name="description" id="description" class="form-control" rows="3"><%= data.description %></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="status" class="form-label">Status:</label>
+        <select name="status" id="status" class="form-select">
+            <option value="pending" <%= data.status === 'pending' ? 'selected' : '' %>>Pending</option>
+            <option value="in-progress" <%= data.status === 'in-progress' ? 'selected' : '' %>>In-Progress</option>
+            <option value="completed" <%= data.status === 'completed' ? 'selected' : '' %>>Completed</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="priority" class="form-label">Priority:</label>
+        <select name="priority" id="priority" class="form-select">
+            <option value="low" <%= data.priority === 'low' ? 'selected' : '' %>>Low</option>
+            <option value="medium" <%= data.priority === 'medium' ? 'selected' : '' %>>Medium</option>
+            <option value="high" <%= data.priority === 'high' ? 'selected' : '' %>>High</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a href="/crud" class="btn btn-secondary">Cancel</a>
+</form>
